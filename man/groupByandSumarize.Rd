@@ -2,7 +2,7 @@
 % Please edit documentation in R/group_by_and_summarize.R
 \name{groupByandSumarize}
 \alias{groupByandSumarize}
-\title{groupByandSumarize}
+\title{Group By And Summarize}
 \usage{
 groupByandSumarize(df, grp_col, summarise_col, FUN = mean)
 }
@@ -19,10 +19,14 @@ groupByandSumarize(df, grp_col, summarise_col, FUN = mean)
 summarized table
 }
 \description{
+Group by columns and summarize given data.
+}
+\details{
 groupByandSumarize
 }
 \examples{
-\dontrun{
 groupByandSumarize(mtcars, grp_col = c("am"), summarise_col = "hp", FUN = "mean")
 }
+\author{
+Jayachandra N
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/missing_count.R
 \name{missing_count}
 \alias{missing_count}
-\title{missing_count}
+\title{Missing Count}
 \usage{
 missing_count(x)
 }
@@ -13,13 +13,14 @@ missing_count(x)
 Number of missing values in the given set of values
 }
 \description{
+Count the number of missing values in a vector.
+}
+\details{
 missing_count
 }
 \examples{
-\dontrun{
 missing_count(c(1,2,3))
 missing_count(c(NA, 1, NA, "NULL", ""))
-}
 }
 \author{
 Jayachandra N

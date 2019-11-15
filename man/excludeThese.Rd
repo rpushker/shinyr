@@ -2,7 +2,7 @@
 % Please edit documentation in R/exclude_these.R
 \name{excludeThese}
 \alias{excludeThese}
-\title{excludeThese}
+\title{Exclude These}
 \usage{
 excludeThese(set, items_to_exclude)
 }
@@ -15,12 +15,13 @@ excludeThese(set, items_to_exclude)
 vector
 }
 \description{
+Exclude an item from a set of items
+}
+\details{
 excludeThese
 }
 \examples{
-\dontrun{
 excludeThese(1:10, 1)
-}
 }
 \author{
 Jayachandra N

@@ -1,14 +1,13 @@
 #' getFeqTable
+#' @title Get Freq Table
+#' @description Get frequency table for a given text
 #' @author Jayachandra N
 #' @param text plain text or a paragraph
-#'
 #' @return data frame of word and it's frequency.
 #' @export
 #' @importFrom tm tm_map Corpus content_transformer VectorSource TermDocumentMatrix stopwords removeNumbers removeWords removePunctuation stripWhitespace
 #' @examples
-#' \dontrun{
-#' getFeqTable("India is Incredible!")
-#' }
+#' getFeqTable("shinyr is Incredible!")
 getFeqTable <- function(text) {
   docs <- Corpus(VectorSource(text))
   toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))

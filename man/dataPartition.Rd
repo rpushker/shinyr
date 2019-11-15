@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_partition.R
 \name{dataPartition}
 \alias{dataPartition}
-\title{dataPartition}
+\title{Data Partition}
 \usage{
 dataPartition(df, train_data_perc)
 }
@@ -15,12 +15,13 @@ dataPartition(df, train_data_perc)
 list of length 2 which contains Train data and Test data
 }
 \description{
+Partition data for training and test
+}
+\details{
 dataPartition
 }
 \examples{
-\dontrun{
 dataPartition(iris, 80)
-}
 }
 \author{
 Jayachandra N

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_datasets.R
 \name{valid_sets}
 \alias{valid_sets}
-\title{valid_sets}
+\title{Valid Sets}
 \usage{
 valid_sets(package = NULL, cols = NULL)
 }
@@ -15,15 +15,16 @@ valid_sets(package = NULL, cols = NULL)
 data frame all available datasets of class data frame
 }
 \description{
+Get a list of all datasets available as data.frame in R
+}
+\details{
 valid_sets
 }
 \examples{
-\dontrun{
 valid_sets()
 }
-}
 \author{
-Ravindra Pushker
+Pushker Ravindra
 
 Jayachandra N
 }

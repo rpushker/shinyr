@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_freq_table.R
 \name{getFeqTable}
 \alias{getFeqTable}
-\title{getFeqTable}
+\title{Get Freq Table}
 \usage{
 getFeqTable(text)
 }
@@ -13,12 +13,13 @@ getFeqTable(text)
 data frame of word and it's frequency.
 }
 \description{
+Get frequency table for a given text
+}
+\details{
 getFeqTable
 }
 \examples{
-\dontrun{
-getFeqTable("India is Incredible!")
-}
+getFeqTable("shinyr is Incredible!")
 }
 \author{
 Jayachandra N

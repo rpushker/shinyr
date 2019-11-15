@@ -2,7 +2,7 @@
 % Please edit documentation in R/regression_model_matrix.R
 \name{regressionModelMetrics}
 \alias{regressionModelMetrics}
-\title{regressionModelMetrics}
+\title{Regression Model Metrics}
 \usage{
 regressionModelMetrics(actuals, predictions, model)
 }
@@ -17,6 +17,9 @@ regressionModelMetrics(actuals, predictions, model)
 list
 }
 \description{
+Generate regression model metrics such as R-squared and MAPE.
+}
+\details{
 regressionModelMetrics
 }
 \examples{

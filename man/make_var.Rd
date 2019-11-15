@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_var.R
 \name{make_var}
 \alias{make_var}
-\title{make_var}
+\title{Make Var}
 \usage{
 make_var(prefix, var, suffix)
 }
@@ -17,11 +17,15 @@ make_var(prefix, var, suffix)
 variable
 }
 \description{
+Make a variable from a given character vector.
+}
+\details{
 make_var
 }
 \examples{
-\dontrun{
 make_var("", "Jay", "")
 make_var("", "Incredible_India", "")
 }
+\author{
+Jayachandra N
 }

@@ -7,9 +7,12 @@
 shineMe()
 }
 \value{
-shiny ui page
+shiny UI page
 }
 \description{
+An R shiny app for shinyr UI.
+}
+\details{
 shineMe
 }
 \examples{

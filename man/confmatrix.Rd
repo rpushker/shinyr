@@ -2,25 +2,26 @@
 % Please edit documentation in R/conf_matrix.R
 \name{confmatrix}
 \alias{confmatrix}
-\title{confmatrix}
+\title{Conf Matrix}
 \usage{
 confmatrix(actuals, preds)
 }
 \arguments{
-\item{actuals}{factor}
+\item{actuals}{a numeric vector}
 
-\item{preds}{factor}
+\item{preds}{a numeric vector}
 }
 \value{
-table
+A table same as caret::ConfusionMatrix
 }
 \description{
+Calculates a cross-tabulation of observed and predicted classes with associated statistics.
+}
+\details{
 confmatrix
 }
 \examples{
-\dontrun{
 confmatrix(c(1,1,1,0), c(1,1,0,0))
-}
 }
 \author{
 Jayachandra N

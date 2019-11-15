@@ -1,18 +1,17 @@
-
 #' groupByandSumarize
-#'
+#' @title Group By And Summarize
+#' @description Group by columns and summarize given data.
 #' @param df data frame
 #' @param grp_col column name to group
 #' @param summarise_col column name to summarize
 #' @param FUN function to summarize
 #' @return summarized table
+#' @author Jayachandra N
 #' @export
 #' @import dplyr
 #' @importFrom stats median
 #' @examples
-#' \dontrun{
 #' groupByandSumarize(mtcars, grp_col = c("am"), summarise_col = "hp", FUN = "mean")
-#' }
 groupByandSumarize <- function(df, grp_col, summarise_col, FUN = mean) {
   x <- make_var("", summarise_col, "")
 
@@ -78,4 +77,3 @@ groupByandSumarize <- function(df, grp_col, summarise_col, FUN = mean) {
   }
   return(res)
 }
-

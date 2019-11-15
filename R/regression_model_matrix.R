@@ -1,5 +1,6 @@
-
 #' regressionModelMetrics
+#' @title Regression Model Metrics
+#' @description Generate regression model metrics such as R-squared and MAPE.
 #' @author Jayachandra N
 #' @param actuals numeric vector of actual values
 #' @param predictions numeric vector of predictions

@@ -1,5 +1,7 @@
 #' valid_sets
-#' @author Ravindra Pushker
+#' @title Valid Sets
+#' @description Get a list of all datasets available as data.frame in R 
+#' @author Pushker Ravindra
 #' @author Jayachandra N
 #' @param package package name to fetch inbuilt data sets example: "datasets"
 #' @param cols numeric to specify condition on how many columns should data frame have
@@ -7,9 +9,7 @@
 #' @export
 #' @importFrom utils data
 #' @examples
-#' \dontrun{
 #' valid_sets()
-#' }
 valid_sets <- function(package = NULL, cols = NULL) {
   data_sets <- utils::data()$results
 
@@ -48,4 +48,3 @@ valid_sets <- function(package = NULL, cols = NULL) {
 
   return(x)
 }
-

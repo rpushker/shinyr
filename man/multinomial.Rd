@@ -2,7 +2,7 @@
 % Please edit documentation in R/multinomial.R
 \name{multinomial}
 \alias{multinomial}
-\title{multinomial}
+\title{Multinomial}
 \usage{
 multinomial(eqn, df)
 }
@@ -15,10 +15,14 @@ multinomial(eqn, df)
 model
 }
 \description{
+Fit Multinomial Log-linear Models.
+}
+\details{
 multinomial
 }
 \examples{
-\dontrun{
 multinomial( Species ~ .,  iris)
 }
+\author{
+Jayachandra N
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_data_insights.R
 \name{getDataInsight}
 \alias{getDataInsight}
-\title{getDataInsight}
+\title{get Data Insights}
 \usage{
 getDataInsight(temp)
 }
@@ -13,6 +13,9 @@ getDataInsight(temp)
 list of details of data
 }
 \description{
+Get detailed insights about the data like number of rows, columns and some basic statistics such as mean
+}
+\details{
 getDataInsight
 }
 \examples{

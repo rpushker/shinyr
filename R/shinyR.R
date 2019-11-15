@@ -1,6 +1,8 @@
 #' shineMe
+#' @title shineMe
+#' @description An R shiny app for shinyr UI.
 #' @author Jayachandra N
-#' @return shiny ui page
+#' @return shiny UI page
 #' @export
 #' @import shiny
 #' @import shinydashboard

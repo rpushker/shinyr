@@ -1,14 +1,13 @@
 #' getCoefficients
-#'
+#' @title Get Coefficients
+#' @description Get coefficients from the model summary
 #' @param model lm model
 #' @author Jayachandra N
 #' @return data.frame of coeffcients
 #' @export
 #' @examples
-#' \dontrun{
-#'  x <- lm(Sepal.Length ~ ., iris)
-#'  getCoefficients(x)
-#' }
+#'  model <- lm(Sepal.Length ~ ., iris) # A linear regression model
+#'  getCoefficients(model)
 getCoefficients <- function(model) {
   x <- summary(model)
   y <- x$coefficients

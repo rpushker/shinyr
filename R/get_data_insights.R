@@ -1,4 +1,6 @@
 #' getDataInsight
+#' @title get Data Insights
+#' @description Get detailed insights about the data like number of rows, columns and some basic statistics such as mean
 #' @author Jayachandra N
 #' @param temp data frame
 #' @return list of details of data

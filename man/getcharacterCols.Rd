@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_numeric_cols.R
 \name{getcharacterCols}
 \alias{getcharacterCols}
-\title{getcharacterCols}
+\title{Get Character Cols}
 \usage{
 getcharacterCols(dat)
 }
@@ -13,7 +13,14 @@ getcharacterCols(dat)
 A Character vector of names of numeric columns of a given data frame
 }
 \description{
+Get character columns.
+}
+\details{
 getcharacterCols
+}
+\examples{
+getcharacterCols(iris)
+getcharacterCols(mtcars)
 }
 \author{
 Jayachandra N

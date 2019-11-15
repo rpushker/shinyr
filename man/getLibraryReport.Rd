@@ -2,7 +2,7 @@
 % Please edit documentation in R/dependency_report.R
 \name{getLibraryReport}
 \alias{getLibraryReport}
-\title{getLibraryReport}
+\title{Get Library Report}
 \usage{
 getLibraryReport(packages)
 }
@@ -13,8 +13,14 @@ getLibraryReport(packages)
 data.frame, status of required packages and their installation status
 }
 \description{
+Get report on whether the given packages are installed on not
+}
+\details{
 getLibraryReport
 }
 \examples{
 check_and_install(c('dplyr', 'data.table'))
+}
+\author{
+Jayachandra N
 }

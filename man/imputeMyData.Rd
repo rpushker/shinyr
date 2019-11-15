@@ -2,7 +2,7 @@
 % Please edit documentation in R/impute_my_data.R
 \name{imputeMyData}
 \alias{imputeMyData}
-\title{imputeMyData}
+\title{Impute My Data}
 \usage{
 imputeMyData(df, col, FUN)
 }
@@ -17,12 +17,16 @@ imputeMyData(df, col, FUN)
 data frame after imputing the values
 }
 \description{
+Impute for missing values in given column in a given data by given method.
+}
+\details{
 imputeMyData
 }
 \examples{
-\dontrun{
 x <- head(iris)
 x$Sepal.Length[1] <- NA
 imputeMyData(x, "Sepal.Length", "mean")
 }
+\author{
+Jayachandra N
 }

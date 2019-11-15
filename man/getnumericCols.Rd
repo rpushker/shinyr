@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_numeric_cols.R
 \name{getnumericCols}
 \alias{getnumericCols}
-\title{getnumericCols}
+\title{Get Numeric Cols}
 \usage{
 getnumericCols(dat)
 }
@@ -13,13 +13,14 @@ getnumericCols(dat)
 Character vector of names of numeric columns of given data frame
 }
 \description{
+Get all columns which are numeric.
+}
+\details{
 getnumericCols
 }
 \examples{
-\dontrun{
 getnumericCols(iris)
 getnumericCols(mtcars)
-}
 }
 \author{
 Jayachandra N

@@ -2,7 +2,7 @@
 % Please edit documentation in R/dependency_report.R
 \name{check_and_install}
 \alias{check_and_install}
-\title{check_and_install}
+\title{Check and Install}
 \usage{
 check_and_install(packs)
 }
@@ -13,7 +13,10 @@ check_and_install(packs)
 data.frame, status of required packages and their installation status
 }
 \description{
-Tries to install and load the packages which are not installed and returns the status
+Check whether given packages are installed or not and if not installed install them
+}
+\details{
+check_and_install
 }
 \examples{
 check_and_install(c('dplyr', 'data.table'))

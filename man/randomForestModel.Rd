@@ -2,7 +2,7 @@
 % Please edit documentation in R/random_forest_model.R
 \name{randomForestModel}
 \alias{randomForestModel}
-\title{randoMForestModel}
+\title{Random Forest Model}
 \usage{
 randomForestModel(eqn, df)
 }
@@ -15,10 +15,14 @@ randomForestModel(eqn, df)
 rf model
 }
 \description{
+Build Random Forest Model.
+}
+\details{
 randoMForestModel
 }
 \examples{
-\dontrun{
-#' mod <- randomForestModel( Species ~ .,  iris)
+randomForestModel( Species ~ .,  iris)
 }
+\author{
+Jayachandra N
 }

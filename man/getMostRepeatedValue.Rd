@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_most_repeated_value.R
 \name{getMostRepeatedValue}
 \alias{getMostRepeatedValue}
-\title{getMostRepeatedValue}
+\title{Get Most Repeated Value}
 \usage{
 getMostRepeatedValue(vec)
 }
@@ -13,11 +13,15 @@ getMostRepeatedValue(vec)
 most repeated values in the given set of values
 }
 \description{
+get most repeated value in a given vector.
+}
+\details{
 getMostRepeatedValue
 }
 \examples{
-\dontrun{
 getMostRepeatedValue(c(1,2,3,3,3,2))
 getMostRepeatedValue(c("R", "R", "Python", "Python", "R"))
 }
+\author{
+Jayachandra N
 }

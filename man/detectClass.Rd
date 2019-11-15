@@ -2,7 +2,7 @@
 % Please edit documentation in R/detect_class.R
 \name{detectClass}
 \alias{detectClass}
-\title{detectClass}
+\title{Detect Class}
 \usage{
 detectClass(x)
 }
@@ -13,14 +13,15 @@ detectClass(x)
 type of the vector
 }
 \description{
+Detects class of given objects
+}
+\details{
 detectClass
 }
 \examples{
-\dontrun{
 detectClass(c(1,2,3))
 detectClass(c("a","b"))
 detectClass(iris$Species)
-}
 }
 \author{
 Jayachandra N

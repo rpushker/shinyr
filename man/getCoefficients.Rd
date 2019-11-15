@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_coefficients.R
 \name{getCoefficients}
 \alias{getCoefficients}
-\title{getCoefficients}
+\title{Get Coefficients}
 \usage{
 getCoefficients(model)
 }
@@ -13,13 +13,14 @@ getCoefficients(model)
 data.frame of coeffcients
 }
 \description{
+Get coefficients from the model summary
+}
+\details{
 getCoefficients
 }
 \examples{
-\dontrun{
- x <- lm(Sepal.Length ~ ., iris)
- getCoefficients(x)
-}
+ model <- lm(Sepal.Length ~ ., iris) # A linear regression model
+ getCoefficients(model)
 }
 \author{
 Jayachandra N
