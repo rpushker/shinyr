@@ -1,6 +1,38 @@
+package_report <- reactive({
+  getLibraryReport(
+    unique(c('data.table',
+      "shinydashboard", 
+      "shiny", 
+      "plotly", 
+      "htmlwidgets",
+      "shinyWidgets", 
+      "corrplot", 
+      "wordcloud", 
+      "DT", 
+      "SnowballC", 
+      "tidytext", 
+      "factoextra",
+      'e1071',
+      'GGally',
+      "dplyr", "shiny", "shinydashboard", "tm", "wordcloud", "corrplot",
+      "randomForest", "RColorBrewer", "DMwR", "caret", "nnet", 'plotly'
+    ))
+  )
+})
+
+output$package_report <- DT::renderDataTable({
+  
+  x <- package_report()
+  # x <- modified_data()
+  
+  DT::datatable(x, class = 'cell-border stripe',
+                selection=list(mode="multiple", target="row"),
+                rownames=TRUE,
+                options = list(scrollX = TRUE,
+                               autoWidth = FALSE))
+})
 
 readFile <- reactive({
-
   if(input$data_to_use_id == "Use examples") {
     description <- input$example_data
     x <- valid_sets()
@@ -10,8 +42,13 @@ readFile <- reactive({
   } else {
     input_file <- input$file1
     input_file_path <- input_file$datapath
-    x <- read.csv(input_file_path, header = TRUE, stringsAsFactors = FALSE)
-    y <- as.data.frame(x)
+    # if('data.table' %in% row.names(installed.packages())) {
+    #   x <- fread(input_file_path)
+    #   y <- as.data.frame(x)
+    # } else {
+      x <- read.csv(input_file_path, header = TRUE)
+      y <- as.data.frame(x)
+    # }
   }
   return(y)
 })

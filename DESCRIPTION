@@ -17,6 +17,6 @@ RoxygenNote: 6.1.1
 Suggests: testthat
 URL: https://github.com/rpushker/shinyr
 NeedsCompilation: no
-Packaged: 2019-09-27 10:19:20 UTC; jjjn
+Packaged: 2019-11-05 06:52:22 UTC; jjjn
 Author: Jayachandra N [aut, cre],
   Pushker Ravindra [aut]

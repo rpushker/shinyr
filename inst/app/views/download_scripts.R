@@ -1,6 +1,6 @@
 output$downloadFilteredData <- downloadHandler(
   filename = function() {
-    paste("filtered_data_", Sys.time(), ".csv", sep = "")
+    paste("filtered_data_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -11,7 +11,7 @@ output$downloadFilteredData <- downloadHandler(
 
 output$downloadAboutDataTable <- downloadHandler(
   filename = function() {
-    paste("About_data_", Sys.time(), ".csv", sep = "")
+    paste("About_data_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -22,7 +22,7 @@ output$downloadAboutDataTable <- downloadHandler(
 
 output$downloadCorelationTable <- downloadHandler(
   filename = function() {
-    paste("Corelation_table_", Sys.time(), ".csv", sep = "")
+    paste("Corelation_table_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -33,7 +33,7 @@ output$downloadCorelationTable <- downloadHandler(
 
 output$downloadImputedTable <- downloadHandler(
   filename = function() {
-    paste("imputed_table_", Sys.time(), ".csv", sep = "")
+    paste("imputed_table_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -44,7 +44,7 @@ output$downloadImputedTable <- downloadHandler(
 
 output$k <- downloadHandler(
   filename = function() {
-    paste("Summarized_table_", Sys.time(), ".csv", sep = "")
+    paste("Summarized_table_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -68,7 +68,7 @@ output$impute_download_conditional <- renderUI({
 
 output$downloadTrainData <- downloadHandler(
   filename = function() {
-    paste("Train_Data_", Sys.time(), ".csv", sep = "")
+    paste("Train_Data_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -79,7 +79,7 @@ output$downloadTrainData <- downloadHandler(
 
 output$downloadTestData <- downloadHandler(
   filename = function() {
-    paste("Test_Data_", Sys.time(), ".csv", sep = "")
+    paste("Test_Data_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {
@@ -90,7 +90,7 @@ output$downloadTestData <- downloadHandler(
 
 output$downloadPredictions <- downloadHandler(
   filename = function() {
-    paste("Predictions_", Sys.time(), ".csv", sep = "")
+    paste("Predictions_", Sys.Date(), ".csv", sep = "")
   },
 
   content = function(file) {

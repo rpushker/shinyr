@@ -146,7 +146,19 @@ output$single_dimention_plot_ui <- renderUI({
       uiOutput("single_dimension_plot_pie_ui"),
       box(width = 6, plotlyOutput("single_dimension_plot_histogram"), title = "Histogram", collapsible = TRUE),
       box(width = 6, plotlyOutput("single_dimension_plot_scatter"), title = "Scatter plot", collapsible = TRUE),
-      box(width = 6, plotlyOutput("single_dimension_plot_line"), title = "Line plot", collapsible = TRUE)
+      box(width = 6, plotlyOutput("single_dimension_plot_line"), title = "Line plot", collapsible = TRUE),
+      box(width = 6, title = 'correlation plot', 
+          uiOutput("cor_plot_style"),
+          plotOutput("cor_matrix_plot")),
+      box(width = 6,title = 'word cloud',
+          uiOutput("cols"),
+          sliderInput("freq",
+                      "Minimum Frequency:",
+                      min = 1,  max = 50, value = 15),
+          sliderInput("max",
+                      "Maximum Number of Words:",
+                      min = 1,  max = 300,  value = 100),
+          plotOutput("plot"))
     )
   } else {
     fluidPage(
@@ -155,7 +167,19 @@ output$single_dimention_plot_ui <- renderUI({
       uiOutput("single_dimension_plot_pie_ui"),
       box(width = 12, plotlyOutput("single_dimension_plot_histogram"), title = "Histogram", collapsible = TRUE),
       box(width = 12, plotlyOutput("single_dimension_plot_scatter"), title = "Scatter plot", collapsible = TRUE),
-      box(width = 12, plotlyOutput("single_dimension_plot_line"), title = "Line plot", collapsible = TRUE)
+      box(width = 12, plotlyOutput("single_dimension_plot_line"), title = "Line plot", collapsible = TRUE),
+      box(width = 12,title = 'word cloud',
+          uiOutput("cols"),
+          sliderInput("freq",
+                      "Minimum Frequency:",
+                      min = 1,  max = 50, value = 15),
+          sliderInput("max",
+                      "Maximum Number of Words:",
+                      min = 1,  max = 300,  value = 100),
+          plotOutput("plot")),
+      box(width = 12, title = 'correlation plot', 
+          uiOutput("cor_plot_style"),
+          plotOutput("cor_matrix_plot"))
     )
   }
 })
