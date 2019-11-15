@@ -1,0 +1,200 @@
+---
+title: shinyr - R package to build analytics dashboard automatically.
+author: Pushker Ravindra, Jayachandra N
+date: September 5, 2019
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: html_document
+# output: html_document
+#   prettydoc::html_pretty:
+#     theme: cayman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### **shinyr** is developed to build dynamic shiny based dashboards to analyze the data of your choice.  It provides simple yet genius dashboard design to subset the data, perform exploratory analysis and predictive analysis by means of interactive filter mechanism.
+
+#### **NOTE: shinyr package does not mis-use your data, your data is not being copied or migrated to anywhere. **
+
+## Installing shinyr package
+##### You can install shinyr package like how you install any other package from CRAN. simply fallow the folloing commands to install the package.
+```{r eval=FALSE}
+install.packages("shinyr")
+library(shinyr)
+```
+
+## shinyr dependencies
+#### shinyr was developed using R programming and few R packages mentioned below along with bit of js and css.
+1. R >= 3.3.1 version 
+2. Following R packages 
+    + shiny
+    + shinydashboard
+    + dplyr
+    + tm
+    + wordcloud
+    + corrplot
+    + RColorBrewer
+    + RandomForest
+    + caret
+    + nnet
+    + DMwR 
+    + plotly
+  
+## Build dynamic dashboard using shinyr
+#### Do you have your data in a csv/xlsx file and you want to get some insights of the data? Cool you can use shinyr package to build a simple dashboard for your data with filters for each of your columns. 
+* You can get insights such as dimention of data, column types, some stats on each column, correlation, missing values. 
+* You can Impute the missing values with mean, median, max, min or sum of that erticular column. 
+* You can aggregate/summarize values of one column by grouping values on other column.
+* You can perform exploratory analysis by simple yet iinformative vsualizations such as bar plot, wordcloud, line, box, and 3D plots. 
+* You can also train regression, logit regression and random forest models, check model performance, predict and validate models with simple clicks.
+* Run the following commands and upload your data and click on build button to create dashboard for your data. You can also choose one few example datasets from your R session.
+
+```{r, eval = FALSE, warnings = FALSE}
+library(shinyr) 
+shinyr::shineMe()
+```
+
+
+## Get list of data sets from your session.
+valid_sets() will give all the data sets that are available in the data frame
+```{r, warning=FALSE, message=FALSE}
+library(shinyr)
+dsets <- shinyr::valid_sets()
+knitr::kable(dsets)
+```
+
+
+## Select and load any inbuilt data
+In case you want to load any data sets from the list of datasets from return of valis_sets() function you can use base::get() function to load the data sets. this will help you to choose on data sets to load dynamycally in any program.
+
+```{r, warning=FALSE, message=FALSE}
+mtcars <- get(dsets$Item[dsets$Item == "mtcars"])
+knitr::kable(head(mtcars))
+```
+
+## Find the numeric columns in the given data frame
+To figure the class of each column in the given data frame use getnumericcols() it return the column names which are numeric
+```{r}
+getnumericCols(mtcars)
+```
+
+## Split the given sentence into words
+to split paragraph or sentence to induvidial words use splitAndGet(), it returns the list of induvidual words in the given input which can be later used by getFeqTable()
+```{r, warning=FALSE, echo=FALSE}
+splitAndGet("**shinyr** is developed to build dynamic shiny based dashboards to analyze the data of your choice.  It provides simple yet genius dashboard design to subset the data, perform exploratory analysis and predictive analysis by means of")
+```
+
+## Get the frequency table for given sentence
+getFeqTable will be used on the output of spliAndGet() to get the frequency of each word, which will be used by getWordCloud
+```{r, warning=FALSE, echo=FALSE}
+x <- getFeqTable("shinyr is developed to build dynamic shiny based dashboards to analyze the data of your choice.  It provides simple yet genius dashboard design to subset the data, perform exploratory analysis and predictive analysis by means of")
+knitr::kable(x)
+```
+
+## Word cloud using the frequency table
+Use getWordCloud() to plot word cloud.
+```{r, warning=FALSE}
+getWordCloud(x)
+```
+
+## Get basic insights to the data
+getDataInsights() takes data frame as an input and returns the basic insights such as class, number of values missing, maximum, min, var, sd, mean, median, unique items for each column. 
+```{r, echo=FALSE, warning=FALSE}
+res <- getDataInsight(mtcars)
+knitr::kable(res$Types)
+```
+
+## Correlation table 
+getDataInsight() also calculates the correlation table for the given data frame.
+```{r}
+knitr::kable(res$cor_matrix)
+```
+
+## Correlation Plot
+You can use corrplot::corrplot() on correlation table to get the correlation table.
+```{r}
+corrplot::corrplot(as.matrix(res$cor_matrix),method = "number")
+```
+
+## Exclude few items from the given set
+This function was developed to eliminate few items from the list of items for any reason.
+```{r}
+excludeThese(mtcars$mpg, c(21.0))
+```
+
+
+## get most repeated item in the given set
+You can find out most repeated values in the given set of values.
+```{r}
+getMostRepeatedValue(c(1,1,1,2,2,3,4,5))
+```
+
+## Calculate total missing items in vector
+missing count will calculate the total number of NA, NULL, "", "NULL", "NA" s in a given set of values. lets introduce some missing values to mtcars
+```{r}
+x <- head(mtcars)
+x$mpg[1:2] <- NA
+```
+
+```{r}
+missing_count(x$mpg)
+```
+## Impute data
+You can replace the missing values in any column of given data frame with one of mean, median, max, and min, sum and mode  by using ImputeMydata().  for example you can impute the missing values in the mpg column by mean of all the values in the column as shown below.
+```{r}
+ imputeMyData(df = x, col = "mpg", FUN = "mean")
+```
+
+## Group By and Summarize
+You can summarize the values of one column by grouping the values in the other column using  groupByandSummarize(). For example you can calculate mean of hp by am.
+```{r}
+knitr::kable(groupByandSumarize(mtcars, grp_col = c("am"), summarise_col = "hp", FUN = "mean"))
+```
+
+## Data partition
+You can split a given data set into training set and test set by using datapartition(), you can specify the percentage to specify the size of trainset. For example you can split mtcars into 85 percent to train and 15 to test as shown below.
+
+```{r}
+partition <- dataPartition(mtcars, 85)
+```
+
+partition is a list of length 2, which contains test and train sets.
+
+### head of train set
+
+```{r}
+knitr::kable(head(partition$Train))
+```
+
+### head of test set
+
+```{r}
+knitr::kable(head(partition$Test))
+```
+
+
+## Train regression model
+```{r}
+mod <- lm(formula = wt ~ ., data = mtcars)
+mod
+```
+
+## Prediction
+
+```{r}
+predictions <- predict(mod, mtcars[,-6])
+```
+
+## Get Regression Model Metrics
+get the metrics of regression model by using regressionModelmMetrics()
+```{r}
+ actials <- mtcars[,6]
+ x <- regressionModelMetrics(actuals = actials, predictions = predictions, model = mod)
+ y <- as.data.frame(x)
+ row.names(y) <- NULL
+ knitr::kable(y)
+```
+
