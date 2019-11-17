@@ -15,13 +15,17 @@ shineMe <- function(){
 }
 
 #' plotCor
-#'
+#' @title Plot Cor
+#' @description Plot correlation plot
 #' @param cor_dat Corelation matrix
-#' @param my_method method to plot Example: circle
+#' @param my_method method to plot, for example: circle
 #' @importFrom corrplot corrplot
 #' @return Corelation plot
 #' @export
+#' @author Jayachandra N
+#' examples
+#' cor_dat <- cor(mtcars)
+#' plotCor(cor_dat, "circle")
 plotCor <- function(cor_dat, my_method) {
-  corrplot::corrplot(cor_dat, method = my_method)
+  corrplot::corrplot(cor_dat, method = my_method) # A single line function?
 }
-

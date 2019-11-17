@@ -2,7 +2,7 @@
 % Please edit documentation in R/word_cloud.R
 \name{getWordCloud}
 \alias{getWordCloud}
-\title{getWordCloud}
+\title{Get Word Cloud}
 \usage{
 getWordCloud(d)
 }
@@ -13,11 +13,12 @@ getWordCloud(d)
 Word cloud plot
 }
 \description{
+Get word cloud for given table of words' frequencies
+}
+\details{
 getWordCloud
 }
 \examples{
-\dontrun{
 x <- getFeqTable("Hello! R is Great")
 getWordCloud(x)
-}
 }

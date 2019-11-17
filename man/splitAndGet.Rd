@@ -2,7 +2,7 @@
 % Please edit documentation in R/split_and_get.R
 \name{splitAndGet}
 \alias{splitAndGet}
-\title{splitAndGet}
+\title{Split And Get}
 \usage{
 splitAndGet(x)
 }
@@ -13,12 +13,13 @@ splitAndGet(x)
 List of worrds
 }
 \description{
+Split a string by space and get
+}
+\details{
 splitAndGet
 }
 \examples{
-\dontrun{
 splitAndGet("R programming is awesome!")
-}
 }
 \author{
 Jayachandra N
