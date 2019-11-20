@@ -9,7 +9,11 @@ output$input_data <- renderUI({
               accept = c("text/csv","text/comma-separated-values,text/plain", ".csv"))
   } else {
     chs <- as.character(na.omit(unique(valid_sets()[,"Title"])))
-    selectInput("example_data", label = "Use Example Dataset", choices = chs, selected = chs[1], multiple = FALSE)
+    selectInput("example_data", 
+                label = "Use Example Dataset", 
+                choices = chs,
+                selected = "Motor Trend Car Road Tests",
+                multiple = FALSE)
   }
 
 })

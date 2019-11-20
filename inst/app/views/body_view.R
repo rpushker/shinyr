@@ -4,12 +4,17 @@ output$body_page <- renderUI({
   res <- filtered_data_dyn()
   if(is.data.frame(res) && nrow(res) > 0) {
     fluidPage(
-      # Basic Stats
+      ## ------- Basic Stats-------->
       tabBox(
-        title = "Data insights", width = 12,
-        tabPanel("Full data", 
-                 fluidPage(DT::dataTableOutput("full_data"))),
-        tabPanel("Filtered data", 
+        title = "Insights", width = 12,
+        tabPanel('About', 
+                 fluidPage(
+                   box(DT::dataTableOutput('package_report'), 
+                       width = 12, 
+                       title = "Required packages"))),
+        # tabPanel("Full data", 
+        #          fluidPage(DT::dataTableOutput("full_data"))),
+        tabPanel("Data", 
                  fluidPage(DT::dataTableOutput("filtered_data"),
                            downloadBttn("downloadFilteredData",
                                         "Download Filtered Data",
@@ -17,7 +22,7 @@ output$body_page <- renderUI({
                                         color = "royal",
                                         style = "stretch",
                                         block = T))),
-        tabPanel("About data", 
+        tabPanel("Summary", 
                  uiOutput("about_data"),
                  DT::dataTableOutput("Col_details"), 
                  downloadBttn("downloadAboutDataTable",
@@ -26,7 +31,7 @@ output$body_page <- renderUI({
                               color = "royal",
                               style = "stretch",
                               block = T)),
-        tabPanel("Corelation Table",
+        tabPanel("Correlations",
                  DT::dataTableOutput("cor_matrix_data"),
                  downloadBttn("downloadCorelationTable",
                               "Download Corelation Table",
@@ -34,11 +39,11 @@ output$body_page <- renderUI({
                               color = "royal",
                               style = "stretch",
                               block = T)),
-        tabPanel("Impute",
+        tabPanel("Imputation",
                  uiOutput("impute_ui"),
                  DT::dataTableOutput("imputed_data_table"), 
                  uiOutput("impute_download_conditional")),
-        tabPanel("Group_by & Summarise", 
+        tabPanel("Pivot Table", 
                  uiOutput("summarize_ui"),
                  downloadBttn("downloadSummarizedTable",
                               "Download Summarized Table",
@@ -48,9 +53,10 @@ output$body_page <- renderUI({
                               block = T))
       ),
       
-      ## Exploratory analysis
+      ## ------Exploratory data analysis------>
+      
       tabBox(
-        title = "Exploratory analysis", width = 12,
+        title = "Exploratory Data Analysis", width = 12,
         tabPanel("1 Dimensional",
                  box(uiOutput("width_of_tables"), width = 6),
                  box(width = 6, uiOutput("xaxis_col_1d")),
@@ -70,9 +76,12 @@ output$body_page <- renderUI({
         
       ),
       
-      ## Predictive analysis view
+      ##----------Predictive analysis --------------->
+      
       tabBox(title = "Predictive Analysis", width = 12,
-             tabPanel("Dimensionality reduction"),
+             tabPanel("Dimensionality Reduction",
+                      uiOutput('pca_output_view')
+                      ),
              tabPanel("Supervised Learning",
                       box(
                         uiOutput("set_seed_regression"),
@@ -85,13 +94,13 @@ output$body_page <- renderUI({
                         uiOutput("regression_validate_method"),
                         uiOutput("file_to_predict_regression"),
                         width = 6),
-                      box(title = "Model details" , 
+                      box(title = "Model Details" , 
                           footer = "click on build to update this section",
                           verbatimTextOutput("regression_model_summary"), 
                           width = 6),
                       fluidPage(
                         tabBox(
-                          tabPanel("Train Data", 
+                          tabPanel("Training Data", 
                                    DT::dataTableOutput("regression_train_data"),
                                    downloadBttn("downloadTrainData", 
                                                 "Download Train Data", 
@@ -107,8 +116,8 @@ output$body_page <- renderUI({
                                                 color = "royal",
                                                 style = "stretch",
                                                 block = T)),
-                          tabPanel("The model", uiOutput("model_details")),
-                          tabPanel("Model validation", 
+                          tabPanel("The Model", uiOutput("model_details")),
+                          tabPanel("Model Validation", 
                                    DT::dataTableOutput("regression_validation_table"),
                                    downloadBttn("downloadPredictions", 
                                                 "Download Predictions", 
@@ -118,7 +127,7 @@ output$body_page <- renderUI({
                                                 block = T)),
                           tabPanel("Confusion Matrix", 
                                    uiOutput("conf")),
-                          tabPanel("Predicted v/s Actuals plot", 
+                          tabPanel("Predictions v/s Actuals", 
                                    plotlyOutput("regression_validation_plot")),
                           width = 12))
              ),
@@ -127,8 +136,8 @@ output$body_page <- renderUI({
                         uiOutput("Cluster_analysis_inputs_ui"), 
                         uiOutput('cluster_analysis_ui'),
                         uiOutput("clustering_status")))
-      ),
-      box(DT::dataTableOutput('package_report'), width = 12, title = "Required packages and status")
+      )
+      # box(DT::dataTableOutput('package_report'), width = 12, title = "Required packages and status")
     )
 
     

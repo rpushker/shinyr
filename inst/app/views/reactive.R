@@ -36,8 +36,13 @@ readFile <- reactive({
   if(input$data_to_use_id == "Use examples") {
     description <- input$example_data
     x <- valid_sets()
-    y <- get(x[x$Title == description, ] %>% unique() %>% .[,"Item"] %>% na.omit %>% as.character())
+    y <- get(x[x$Title == description, ] %>% 
+               unique() %>% 
+               .[,"Item"] %>% 
+               na.omit %>% 
+               as.character())
     y <- as.data.frame(y)
+    
 
   } else {
     input_file <- input$file1
