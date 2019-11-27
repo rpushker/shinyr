@@ -1,12 +1,20 @@
 
 output$data_to_use <- renderUI({
-  radioButtons(inputId = "data_to_use_id", label = "Input Data", choices = c("Use examples", "Upload"))
+  radioButtons(inputId = "data_to_use_id", 
+               label = "Input Data", 
+               choices = c("Use examples", 
+                           "Upload"))
 })
 
 output$input_data <- renderUI({
+  
   if(input$data_to_use_id == "Upload") {
-    fileInput("file1", "Upload a csv file", multiple = FALSE,
-              accept = c("text/csv","text/comma-separated-values,text/plain", ".csv"))
+    fileInput(inputId = "file1",
+              label = "Upload a csv file", 
+              multiple = FALSE,
+              accept = c("text/csv",
+                         "text/comma-separated-values,text/plain", 
+                         ".csv"))
   } else {
     chs <- as.character(na.omit(unique(valid_sets()[,"Title"])))
     selectInput("example_data", 
@@ -54,16 +62,22 @@ output$filters <- renderUI({
   })
 
   choices <- lapply(1:length(selected_cols), FUN = function(x){
-    unique(my_data[ ,selected_cols[x]])
+    unique(my_data[ ,selected_cols[x]]) 
   })
+  
   lapply(1:length(labels), function(i) {
     output[[labels[[i]]]] <- renderUI({
       col <- my_data[ ,selected_cols[i]]
       if(is.character(col) | is.factor(col)) {
+        if(is.factor(col)){
+          ch <- choices[[i]] %>% levels()
+        } else {
+          ch <- choices[[i]]
+        }
         pickerInput(ids[[i]],
                     label = labels[[i]],
-                    choices = choices[[i]],
-                    selected = choices[[i]],
+                    choices = ch,
+                    selected = ch,
                     multiple = TRUE)
       } else if(is.numeric(col)) {
         sliderInput(ids[[i]],
@@ -74,6 +88,7 @@ output$filters <- renderUI({
       }
 
     })
+    
   })
 
   lapply(1:length(labels), function(i) {

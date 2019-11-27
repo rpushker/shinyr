@@ -1,7 +1,6 @@
 library(shinyr)
 library(dplyr)
 
-
 check_and_install(
   c('data.table',
     "shinydashboard", 
@@ -19,8 +18,6 @@ check_and_install(
     'GGally'
     )
 )
-
-
 
 
 # library(shinydashboard)

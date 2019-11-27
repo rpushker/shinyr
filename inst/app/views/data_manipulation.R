@@ -34,8 +34,15 @@ output$cor_plot_style <- renderUI({
   
   selectInput(inputId = "cor_style", 
               label = "Plot style",
-              choices = c("circle", "square", "number", "ellipse", "shade", "color", "pie"), 
-              selected = "square")
+              choices = sort(c("circle", 
+                          "square", 
+                          "number",
+                          "ellipse",
+                          "shade", 
+                          "color", 
+                          "pie")
+                          )
+              )
   
 })
 
@@ -100,7 +107,7 @@ output$impute_function <- renderUI({
   
   res <- filtered_data_dyn()
   
-  if(is.character(res[,input$impute_column])) {
+  if(shinyr::getType(res[,input$impute_column]) == "character") {
     
     selectInput("impute_function", 
                 label = "Select function to impute", 
@@ -146,6 +153,39 @@ output$impute_column <- renderUI({
 output$impute_action <- renderUI({
   actionButton("impute", "Impute")
 })
+
+imputed_data <- reactive({
+  req(input$impute)
+  my_data <- readFile()
+  input$impute
+  isolate({
+    if(input$impute == 1) {
+      x <- imputeMyData(df = my_data, 
+                        col = input$impute_column,
+                        FUN = input$impute_function)
+      y <<- x
+      x <- y
+    } else if(input$impute > 1) {
+      if(input$impute_function == "reset") {
+        x <- imputeMyData(df = my_data,
+                          col = input$impute_column,
+                          FUN = input$impute_function)
+      } else {
+        x <- imputeMyData(df = y,
+                          col = input$impute_column,
+                          FUN = input$impute_function)
+      }
+      
+      y <<- x
+      x <- y
+    } else {
+      x <- my_data
+    }
+  })
+  
+  return(x)
+})
+
 
 output$imputed_data_table <- DT::renderDataTable({
   
@@ -297,11 +337,14 @@ summarized_data <- reactive({
     my_data <- filtered_data_dyn()
     
   }
-  
-  my_data <- groupByandSumarize(df = my_data, 
-                                grp_col = input$group_by_cols, 
-                                summarise_col = input$summarise_cols, 
-                                FUN = input$summarised_group_function)
+  input$Group_summarise
+  isolate({
+    my_data <- groupByandSumarize(df = my_data, 
+                                  grp_col = input$group_by_cols, 
+                                  summarise_col = input$summarise_cols, 
+                                  FUN = input$summarised_group_function)
+  })
+
   return(my_data)
   
 })

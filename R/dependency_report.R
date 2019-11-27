@@ -5,12 +5,13 @@
 #' @return data.frame, status of required packages and their installation status
 #' @author Jayachandra N
 #' @export
+#' @importFrom utils installed.packages
 #' @examples
 #' check_and_install(c('dplyr', 'data.table'))
 getLibraryReport <- function(packages) {
   report <- list()
   for(i in 1:length(packages)){
-    if(packages[i] %in% row.names(installed.packages())) {
+    if(packages[i] %in% row.names(utils::installed.packages())) {
       report[[i]] <- c(packages[i], "Installed")
     } else {
       report[[i]] <- c(packages[i], "Not installed")
@@ -28,16 +29,16 @@ getLibraryReport <- function(packages) {
 #' @param packs Vector of package names
 #' @return data.frame, status of required packages and their installation status
 #' @export 
-#'
+#' @importFrom utils install.packages installed.packages
 #' @examples
 #' check_and_install(c('dplyr', 'data.table'))
 check_and_install <- function(packs) {
   for(i in 1:length(packs)) {
-    if(packs[i] %in% row.names(installed.packages())) {
+    if(packs[i] %in% row.names(utils::installed.packages())) {
       library(packs[i], character.only = TRUE)
     } else {
       x <- packs[i]
-      status[i] <- c(packs[i],install.packages(x))
+      status[i] <- c(packs[i], utils::install.packages(x))
     }
   }
   return(getLibraryReport(packs))

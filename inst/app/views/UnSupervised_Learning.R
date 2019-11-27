@@ -27,8 +27,8 @@ as_valid_set_for_clustering <- function(x){
 output$clustering_columns_selection_ui <- renderUI({
   dat <- filtered_data_dyn()
   cls <- as_valid_set_for_clustering(dat)$types
-  numeric_col_index <- which(cls %in% "numeric")
-    selectInput(inputId = "input_cols_for_kmeans_clustering", 
+  numeric_col_index <- which(cls %in% c("numeric", 'integer'))
+  selectInput(inputId = "input_cols_for_kmeans_clustering", 
                 label = "Select Input columns", 
                 multiple = TRUE, 
                 choices = names(dat)[numeric_col_index], 
@@ -121,6 +121,7 @@ clustering_data <- reactive({
   isolate({
     df <- scale(na.omit(df[,input$input_cols_for_kmeans_clustering]))
   })
+  browser
   df
 })
 
@@ -140,7 +141,8 @@ kmeans_analysis <- reactive({
                main = "K-means Partitioning Clustering Plot"
   )
   
-  return(list(plot = plot, cluster_analysis = cluster_analysis))
+  return(list(plot = plot, 
+              cluster_analysis = cluster_analysis))
   
 })
 
@@ -169,7 +171,10 @@ output$data_with_cluster_id_mapped <-  DT::renderDataTable({
 
 output$downloadData_with_cluster_id_mapped <- downloadHandler(
   filename = function() {
-    paste("Data_with_cluster_id_mapped_", Sys.time(), ".csv", sep = "")
+    paste("Data_with_cluster_id_mapped_", 
+          Sys.time(),
+          ".csv", 
+          sep = "")
   },
   
   content = function(file) {
@@ -181,7 +186,9 @@ output$downloadData_with_cluster_id_mapped <- downloadHandler(
 output$nclust_method_input <- renderUI({
   radioButtons(inputId = 'nclust_calc_method', 
                label = 'Method to calculate optimal number of clusters', 
-               choices = c('Average of silhouette', 'Total within sum of square', 'Gap statistics'), 
+               choices = c('Average of silhouette', 
+                           'Total within sum of square', 
+                           'Gap statistics'), 
                selected = 'Gap statistics', 
                inline = TRUE)
 })
@@ -213,7 +220,7 @@ hierarchical_clustering_analysis <- reactive({
 output$ggpairs_plot_for_clusters <- renderPlot({
   # res <- clusters_table()
   x <- clustering_data()
-  data <- scale(iris[,-5])
+  data <- scale(x[,input$input_cols_for_kmeans_clustering])
   input$submitt_button_clustering
   isolate({
     final <- kmeans(x, as.numeric(input$kmeans_n_clusters), 25)

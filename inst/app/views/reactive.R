@@ -82,34 +82,6 @@ filtered_data_dyn <- reactive({
   filtered_data()
 })
 
-imputed_data <- reactive({
-  req(input$impute)
-  my_data <- readFile()
-  print(input$impute)
-  if(input$impute == 1) {
-    x <- imputeMyData(df = my_data, col = input$impute_column,
-                 FUN = input$impute_function)
-    y <<- x
-    x <- y
-  } else if(input$impute > 1) {
-    if(input$impute_function == "reset") {
-      x <- imputeMyData(df = my_data,
-                        col = input$impute_column,
-                        FUN = input$impute_function)
-    } else {
-      x <- imputeMyData(df = y,
-                        col = input$impute_column,
-                        FUN = input$impute_function)
-    }
-
-    y <<- x
-    x <- y
-  } else {
-    x <- my_data
-  }
-  return(x)
-})
-
 
 modified_data <- reactive({
   summarized_data()
