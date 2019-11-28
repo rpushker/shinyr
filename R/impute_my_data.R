@@ -15,7 +15,8 @@
 imputeMyData <- function(df, col, FUN) {
   missing_cells <- (is.na(df[,col]) | is.null(df[,col]) | df[,col] == "NULL" | df[,col] == "" )
   df_original <- df
-  if(is.numeric(df[ ,col])) {
+  
+  if(getType(df[,col]) == 'numeric') {
 
     for(i in 1:length(df[,col])) {
       #print(paste("present",df[col][i,]))
@@ -40,7 +41,7 @@ imputeMyData <- function(df, col, FUN) {
       }
       #print(paste("Imputed",df[col][i,]))
     }
-  } else if(is.character(df[ ,col])) {
+  } else if(getType(df[,col]) == 'character') {
     for(i in 1:length(df[,col])) {
       if(missing_cells[i]) {
         df[col][i,] <- as.character(getMostRepeatedValue(df[,col]))
