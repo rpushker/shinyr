@@ -148,15 +148,15 @@ output$pca_output_view <- renderUI({
     fluidPage(
       uiOutput('dimention_reduction_input_columns'),
       actionButton('do_pca','Perform Principle component analysis'),
-      DT::dataTableOutput('eigenvalues_table'),
-      plotOutput('eigenvalues_plot'),
-      DT::dataTableOutput('results_for_variables_table'),
-      plotOutput('variable_contribution_plot'),
-      plotOutput('contribution_to_principle_axis_1_table'),
-      plotOutput('contribution_to_principle_axis_2_table'),
-      DT::dataTableOutput('results_for_induviduals'),
-      plotOutput('induviduals_plot'),
-      plotOutput('biplot')
+      box(DT::dataTableOutput('eigenvalues_table'), width = 12, title = 'Eigen values'),
+      box(plotOutput('eigenvalues_plot'), width = 12, title = 'Eigen values'),
+      box(DT::dataTableOutput('results_for_variables_table'),width =12),
+      box(plotOutput('variable_contribution_plot'), width = 12),
+      box(plotOutput('contribution_to_principle_axis_1_table'),width = 12),
+      box(plotOutput('contribution_to_principle_axis_2_table'),width =12),
+      box(DT::dataTableOutput('results_for_induviduals'), width = 12),
+      box(plotOutput('induviduals_plot'), width =12),
+      box(plotOutput('biplot'),width = 12)
     )
   }
 })

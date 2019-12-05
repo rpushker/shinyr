@@ -1,8 +1,11 @@
 
 output$body_page <- renderUI({
+  
   req(input$Analyze)
   res <- filtered_data_dyn()
-  if(is.data.frame(res) && nrow(res) > 0) {
+ 
+   if(is.data.frame(res) && nrow(res) > 0) {
+    
     fluidPage(
       ## ------- Basic Stats-------->
       tabBox(
@@ -72,16 +75,14 @@ output$body_page <- renderUI({
                  box(uiOutput("yaxis_col_3d"), width =3),
                  box(uiOutput("zaxis_col_3d"), width =3),
                  box(uiOutput("color_plot_type_3d"), width =3),
-                 uiOutput("plot_type_3d"), plotlyOutput("plot_me_3d"))
-        
+                 uiOutput("plot_type_3d"), plotlyOutput("plot_me_3d")),
+        tabPanel("Dimensionality Reduction",
+                 uiOutput('pca_output_view'))
       ),
       
       ##----------Predictive analysis --------------->
       
       tabBox(title = "Predictive Analysis", width = 12,
-             tabPanel("Dimensionality Reduction",
-                      uiOutput('pca_output_view')
-                      ),
              tabPanel("Supervised Learning",
                       box(
                         uiOutput("set_seed_regression"),
