@@ -1,3 +1,4 @@
+library(testthat)
 test_that("Test getFeqTable", {
   x <- getFeqTable("shinyr is an easy way to do initial analysis of data")
   expect_true(is.data.frame(x))
