@@ -1,6 +1,9 @@
 ---
 title: "shinyr: How simple is it?"
-output: html_document
+output: rmarkdown::html_vignette
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{shinyr: How simple is it?}
+%\usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}

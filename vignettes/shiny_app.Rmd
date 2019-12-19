@@ -1,7 +1,10 @@
 ---
 title: "shinier"
 runtime: shiny
-output: html_document
+output: rmarkdown::html_vignette
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{shinyr - R package to build analytics dashboard automatically}
+%\usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
@@ -24,12 +27,12 @@ shinyr::shineMe()
 
 
 ```{r tabsets, echo=FALSE}
-shinyAppDir(
-  system.file(package = "shinyr", "app"),
-  options = list(
-    width = "100%", height = 550
-  )
-)
+#shinyAppDir(
+#  system.file(package = "shinyr", "app"),
+#  options = list(
+#    width = "100%", height = 550
+#  )
+#)
 ```
 
 

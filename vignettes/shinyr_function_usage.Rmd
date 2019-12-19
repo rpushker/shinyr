@@ -1,11 +1,13 @@
 ---
-title: shinyr - R package to build analytics dashboard automatically.
-author: Pushker Ravindra, Jayachandra N
-date: September 5, 2019
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: html_document
+title: shinyr - R package to build analytics dashboard automatically
+output: rmarkdown::html_vignette
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{shinyr - R package to build analytics dashboard automatically}
+%\usepackage[utf8]{inputenc}
+# output:
+#   prettydoc::html_pretty:
+#     theme: cayman
+#     highlight: html_document
 # output: html_document
 #   prettydoc::html_pretty:
 #     theme: cayman
@@ -71,6 +73,7 @@ knitr::kable(dsets)
 In case you want to load any data sets from the list of datasets from return of valis_sets() function you can use base::get() function to load the data sets. this will help you to choose on data sets to load dynamycally in any program.
 
 ```{r, warning=FALSE, message=FALSE}
+dsets$Item <- as.character(dsets$Item)
 mtcars <- get(dsets$Item[dsets$Item == "mtcars"])
 knitr::kable(head(mtcars))
 ```

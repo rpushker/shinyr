@@ -1,6 +1,6 @@
 Package: shinyr
 Type: Package
-Title: Easy insights through your data
+Title: Data Insights Through Inbuilt R Shiny App
 Version: 0.2
 Authors@R: c(person("Jayachandra", "N", email = "itsjay510@gmail.com", role = c("aut", "cre")), 
     person("Pushker", "Ravindra", email = "pushker@gmail.com", role = c("aut")))
@@ -8,12 +8,12 @@ Description: `shinyr` is developed to build dynamic R `shiny` based dashboards t
     It provides simple dashboard design to subset the data, perform exploratory data analysis and preliminary machine learning (supervised and unsupervised). It also provides filters based on columns of interest. 
 Depends: R (>= 3.1.0),
 Imports: dplyr, shiny, shinydashboard, tm, wordcloud, corrplot,
-        randomForest, RColorBrewer, DMwR, caret, nnet, plotly
-Maintainer: The package maintainer <itsjay510@gmail.com>
+        randomForest, RColorBrewer, DMwR, caret, nnet, plotly, e1071, knitr
+Maintainer: Jayachandra N <itsjay510@gmail.com>
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Suggests: testthat
-URL: https://github.com/rpushker/shinyr
 NeedsCompilation: no
+VignetteBuilder: knitr
