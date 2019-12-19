@@ -1,9 +1,9 @@
 ---
-title: "shinier"
+title: "shinyr - Basic Example"
 runtime: shiny
 output: rmarkdown::html_vignette
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{shinyr - R package to build analytics dashboard automatically}
+%\VignetteIndexEntry{shinyr - Basic Example}
 %\usepackage[utf8]{inputenc}
 ---
 
