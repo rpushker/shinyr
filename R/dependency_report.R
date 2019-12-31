@@ -10,15 +10,29 @@
 #' check_and_install(c('dplyr', 'data.table'))
 getLibraryReport <- function(packages) {
   report <- list()
-  for(i in 1:length(packages)){
-    if(packages[i] %in% row.names(utils::installed.packages())) {
-      report[[i]] <- c(packages[i], "Installed")
-    } else {
-      report[[i]] <- c(packages[i], "Not installed")
+  # if(method != 'requireNamespace') {
+  #   for(i in 1:length(packages)){
+  #     if(packages[i] %in% row.names(utils::installed.packages())) {
+  #       report[[i]] <- c(packages[i], "Installed")
+  #     } else {
+  #       report[[i]] <- c(packages[i], "Not installed")
+  #     }
+  #   }
+  #   report <- as.data.frame(do.call('rbind', report))
+  #   names(report) <- c('Package', "Status")
+  # }
+  # else{
+    for(i in 1:length(packages)) {
+      flag <- requireNamespace(packages[i], quietly = TRUE)
+      if(flag) {
+        report[[i]] <- c(packages[i], "Installed")
+      } else {
+        report[[i]] <- c(packages[i], "Not installed")
+      }
     }
-  }
-  report <- as.data.frame(do.call('rbind', report))
-  names(report) <- c('Package', "Status")
+    report <- as.data.frame(do.call('rbind', report))
+    names(report) <- c('Package', "Status")
+  # }
   return(report)
 }
 
@@ -34,7 +48,8 @@ getLibraryReport <- function(packages) {
 #' check_and_install(c('dplyr', 'data.table'))
 check_and_install <- function(packs) {
   for(i in 1:length(packs)) {
-    if(packs[i] %in% row.names(utils::installed.packages())) {
+    flag <- requireNamespace(packs[i], quietly = TRUE)
+    if(flag) {
       library(packs[i], character.only = TRUE)
     } else {
       x <- packs[i]
