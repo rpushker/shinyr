@@ -1,9 +1,8 @@
 ---
-title: "shinyr: How simple is it?"
-output: rmarkdown::html_vignette
-%\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{shinyr: How simple is it?}
-%\usepackage[utf8]{inputenc}
+title: "shinyr: Data Insights Through Inbuilt R Shiny App"
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
@@ -23,6 +22,3 @@ shinyr::shineMe()
 ```
 
 #### Remember your data stays with you safe! your data will not be exposed to anyone/anywhere.
-
-
-

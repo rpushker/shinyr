@@ -16,8 +16,8 @@ Data frame of column name and it's type
 getTypeOfColumns
 }
 \examples{
-getTypeOfColumn(mtcars)
-getTypeOfColumn(iris)
+getTypeOfColumns(mtcars)
+getTypeOfColumns(iris)
 }
 \author{
 Jayachandra N

@@ -52,8 +52,8 @@ getType <- function(vec) {
 #' @return Data frame of column name and it's type
 #' @export
 #' @examples
-#' getTypeOfColumn(mtcars)
-#' getTypeOfColumn(iris)
+#' getTypeOfColumns(mtcars)
+#' getTypeOfColumns(iris)
 getTypeOfColumns <- function(df) {
   # df <- iris
   res <- lapply(names(df), FUN = function(x) {
