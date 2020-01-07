@@ -1,8 +1,9 @@
 ---
 title: "shinyr: Data Insights Through Inbuilt R Shiny App"
-output:
-  md_document:
-    variant: markdown_github
+output: rmarkdown::html_vignette
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{shinyr - R package to build analytics dashboard automatically}
+%\usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
