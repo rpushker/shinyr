@@ -137,6 +137,61 @@ output$single_dimension_plot_line <- renderPlotly({
   p
 })
 
+# output$cor_plot_column_inputs <- renderUI({
+#   dat <- filtered_data_dyn()
+#   dat <- iris
+#   x <- getTypeOfColumns(dat)
+#   
+#   total_numeric_columns <- sum(x$Type %in% 'numeric')
+#   threshold <- 2
+#   
+#   if(total_numeric_columns >= threshold) {
+#     x <- x[x$Column == 'numeric', ]
+#   } 
+#   
+#   shiny::selectInput(inputId = "corplot_input_cols", 
+#                      label = "Select Columns to calculate correlation", 
+#                      choices = x$Column, multiple = TRUE)
+# })
+
+output$cor_matrix_data <- DT::renderDataTable({
+  
+  x <- initial_analysis()
+  
+  DT::datatable(x$cor_matrix, class = 'cell-border stripe',
+                selection=list(mode="multiple", target="row"),
+                rownames=TRUE,
+                options = list(scrollX = TRUE,
+                               autoWidth = FALSE)
+  )
+  
+})
+
+output$cor_plot_style <- renderUI({
+  
+  selectInput(inputId = "cor_style", 
+              label = "Plot style",
+              choices = sort(c("circle", 
+                               "square", 
+                               "number",
+                               "ellipse",
+                               "shade", 
+                               "color", 
+                               "pie")
+              )
+  )
+  
+})
+
+output$cor_matrix_plot <- renderPlot({
+  
+  x <- initial_analysis()
+  
+  y <- x$cor_matrix
+  
+  plotCor(as.matrix(y), my_method = input$cor_style)
+  
+})
 
 output$single_dimention_plot_ui <- renderUI({
   if(input$plot_size == "Medium") {

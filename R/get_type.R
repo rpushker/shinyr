@@ -45,3 +45,28 @@ getType <- function(vec) {
       })
   }
 }
+
+#' getTypeOfColumns
+#' @author Jayachandra N
+#' @param df data frame
+#' @return Data frame of column name and it's type
+#' @export
+#' @examples
+#' getTypeOfColumn(mtcars)
+#' getTypeOfColumn(iris)
+getTypeOfColumns <- function(df) {
+  # df <- iris
+  res <- lapply(names(df), FUN = function(x) {
+    getType(df[[x]])
+  })
+  names(res) <- names(df)
+  res <- as.data.frame(do.call('rbind', res))
+  res$column <- names(df)
+  res <- res[,c(2,1)]
+  row.names(res) <- NULL
+  names(res) <- c('Column', "Type")
+  return(res)
+}
+
+
+

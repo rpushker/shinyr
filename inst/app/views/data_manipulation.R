@@ -17,46 +17,6 @@ output$about_data <- renderUI({
 })
 
 
-output$cor_matrix_data <- DT::renderDataTable({
-  
-  x <- initial_analysis()
-  
-  DT::datatable(x$cor_matrix, class = 'cell-border stripe',
-                selection=list(mode="multiple", target="row"),
-                rownames=TRUE,
-                options = list(scrollX = TRUE,
-                               autoWidth = FALSE)
-                )
-  
-})
-
-output$cor_plot_style <- renderUI({
-  
-  selectInput(inputId = "cor_style", 
-              label = "Plot style",
-              choices = sort(c("circle", 
-                          "square", 
-                          "number",
-                          "ellipse",
-                          "shade", 
-                          "color", 
-                          "pie")
-                          )
-              )
-  
-})
-
-
-
-output$cor_matrix_plot <- renderPlot({
-  
-  x <- initial_analysis()
-  
-  y <- x$cor_matrix
-  
-  plotCor(as.matrix(y), my_method = input$cor_style)
-  
-})
 
 
 output$full_data <- DT::renderDataTable({

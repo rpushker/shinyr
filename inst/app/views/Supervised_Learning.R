@@ -1,3 +1,6 @@
+
+library(DT)
+
 output$regression_predictor_cols <- renderUI({
   res <- filtered_data_dyn()
   chs <- getnumericCols(res)
@@ -28,15 +31,31 @@ output$possible_models_to_train <- renderUI({
   res <- filtered_data_dyn()
   dep_col <- res[,input$regression_dependent_variable]
   unique_items <- length(unique(dep_col))
+  
   if(detectClass(dep_col) == "numeric" && unique_items <= 4) {
-    radioButtons(inputId = "Model_type", label = "Choose model type",
-                 choices = c("Linear Regression", "Logistic Regression", "Random Forest"), selected = "Linear Regression")
+    
+    radioButtons(inputId = "Model_type",
+                 label = "Choose model type",
+                 choices = c("Linear Regression",
+                             "Logistic Regression",
+                             "Random Forest"),
+                 selected = "Linear Regression")
+    
   } else if(detectClass(dep_col) == "numeric" && unique_items > 5){
-    radioButtons(inputId = "Model_type", label = "Choose model type",
-                 choices = c("Linear Regression"), selected = "Linear Regression")
+    
+    radioButtons(inputId = "Model_type", 
+                 label = "Choose model type",
+                 choices = c("Linear Regression"),
+                 selected = "Linear Regression")
+    
   }  else if(detectClass(dep_col) %in% c("character", "factor")) {
-    radioButtons(inputId = "Model_type", label = "Choose model type",
-                 choices = c("Logistic Regression", "Random Forest"), selected = "Logistic Regression")
+    
+    radioButtons(inputId = "Model_type",
+                 label = "Choose model type",
+                 choices = c("Logistic Regression", 
+                             "Random Forest"),
+                 selected = "Logistic Regression")
+    
   }
 
 })
@@ -79,8 +98,10 @@ regression_model <- eventReactive(input$regression_build, {
   req(input$regression_dependent_variable)
   req(input$regression_predictor)
   validate(need(!is.null(input$regression_predictor) && !is.null(input$regression_dependent_variable),
-                "please select Dependent and indipendent variables and click on 'Train' button"))
+                "please select Dependent and Indipendent variables and click on 'Build Model' button"))
   res <- filtered_data_dyn()
+  res <- na.omit(res)
+  
   items <- length(unique(res[,input$regression_dependent_variable]))
   eqn <-   as.formula(paste(input$regression_dependent_variable,
                             paste(input$regression_predictor, collapse=" + "),
@@ -97,13 +118,19 @@ regression_model <- eventReactive(input$regression_build, {
       mod <- multinomial(eqn, df = res)
     }
   } else if(input$Model_type == "Random Forest") {
-    eqn <-   as.formula(paste(input$regression_dependent_variable,
-                              paste(input$regression_predictor, collapse=" + "),
-                              sep=" ~ "))
-    dependent_variable <- input$regression_dependent_variable
-    res[,dependent_variable] <- factor(res[,dependent_variable], levels = unique(res[,dependent_variable]))
-    res <- na.omit(res)
-    mod <- caret::train(eqn, res)
+    missing_values_count <- missing_count(res)
+    if(missing_values_count > 0) {
+      mod <- "Please remove all Missing values from data"
+    } else {
+      eqn <-   as.formula(paste(input$regression_dependent_variable,
+                                paste(input$regression_predictor, collapse=" + "),
+                                sep=" ~ "))
+      dependent_variable <- input$regression_dependent_variable
+      res[,dependent_variable] <- factor(res[,dependent_variable], levels = unique(res[,dependent_variable]))
+      res <- na.omit(res)
+      mod <- caret::train(eqn, res)
+    }
+
   }
   return(mod)
 })
@@ -262,7 +289,6 @@ output$regression_coefficients_table <- DT::renderDataTable({
   brks <- quantile(res[,3], probs = seq(.05, .95, .05), na.rm = TRUE)
   clrs <- round(seq(255, 40, length.out = length(brks) + 1), 0) %>%
   {paste0("rgb(255,", ., ",", ., ")")}
-  library(DT)
   DT::datatable(res,
                 class = 'cell-border stripe',
                 selection=list(mode="multiple", target="row"),

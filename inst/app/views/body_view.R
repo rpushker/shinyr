@@ -35,6 +35,7 @@ output$body_page <- renderUI({
                               style = "stretch",
                               block = T)),
         tabPanel("Correlations",
+                 # uiOutput('cor_plot_column_inputs'),
                  DT::dataTableOutput("cor_matrix_data"),
                  downloadBttn("downloadCorelationTable",
                               "Download Corelation Table",
