@@ -4,17 +4,18 @@ shinyUI(
     dashboardPage(
       dashboardHeader(
                       # titleWidth='100%',
-                      title = span(
-                        #tags$img(src= "images/header3.jpg", width = '100%'),
-                        column(12, class="title-box",
-                               tags$h1(class="primary-title", 
-                                       style='margin-top:10px;', 
-                                       'shinyR'),
-                               tags$h2(class="primary-subtitle",
-                                       style='margin-top:10px;', 
-                                       'Automatic dashboard for your data')
-                               )
-                        )
+                      title = 'ShinyR'
+                      # title = span(
+                      #   #tags$img(src= "images/header3.jpg", width = '100%'),
+                      #   column(12, class="title-box",
+                      #          tags$h1(class="primary-title", 
+                      #                  style='margin-top:10px;', 
+                      #                  'shinyR'),
+                      #          tags$h2(class="primary-subtitle",
+                      #                  style='margin-top:10px;', 
+                      #                  'Automatic dashboard for your data')
+                      #          )
+                      #   )
                       ),
                       
       

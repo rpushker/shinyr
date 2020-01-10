@@ -1,16 +1,9 @@
 ---
-title: shinyr - R package to build analytics dashboard automatically
+title: shinyr - an R package to build analytics dashboard automatically
 output: rmarkdown::html_vignette
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{shinyr - R package to build analytics dashboard automatically}
+%\VignetteIndexEntry{shinyr - an R package to build analytics dashboard automatically}
 %\usepackage[utf8]{inputenc}
-# output:
-#   prettydoc::html_pretty:
-#     theme: cayman
-#     highlight: html_document
-# output: html_document
-#   prettydoc::html_pretty:
-#     theme: cayman
 ---
 
 ```{r setup, include=FALSE}
