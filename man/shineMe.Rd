@@ -16,7 +16,7 @@ An R shiny app for shinyr UI.
 shineMe
 }
 \examples{
-\dontrun{
+\donttest{
 shineMe()
 }
 }

@@ -19,7 +19,7 @@ Get report on whether the given packages are installed on not
 getLibraryReport
 }
 \examples{
-check_and_install(c('dplyr', 'data.table'))
+getLibraryReport(c('dplyr', 'data.table'))
 }
 \author{
 Jayachandra N

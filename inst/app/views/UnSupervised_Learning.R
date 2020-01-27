@@ -36,8 +36,8 @@ output$clustering_columns_selection_ui <- renderUI({
 })
 
 isPackageInstalled <- function(package) {
-  installed <- as.data.frame(installed.packages())
-  return(isTRUE(package %in% installed$Package))
+  installed <- system.file(package = package)
+  return(installed != "")
 }
 
 output$clustering_status <- renderUI({

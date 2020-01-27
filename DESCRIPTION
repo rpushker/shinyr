@@ -12,7 +12,7 @@ Maintainer: Jayachandra N <itsjay510@gmail.com>
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests: testthat
 NeedsCompilation: no
 VignetteBuilder: knitr

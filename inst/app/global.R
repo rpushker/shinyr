@@ -1,7 +1,7 @@
 library(shinyr)
 library(dplyr)
 
-check_and_install(
+getLibraryReport(
   c('data.table',
     "shinydashboard", 
     "shiny", 
@@ -19,16 +19,15 @@ check_and_install(
     )
 )
 
-
-# library(shinydashboard)
-# library(shiny)
-# library(dplyr)
-# library(plotly)
-# library(htmlwidgets)
-# library(shinyWidgets)
-# library(corrplot)
-# library(wordcloud)
-# library(shinyr)
-# library(DT)
-# library(SnowballC)
-# library(tidytext)
+library(shinydashboard)
+library(shiny)
+library(dplyr)
+library(plotly)
+library(htmlwidgets)
+library(shinyWidgets)
+library(corrplot)
+library(wordcloud)
+library(shinyr)
+library(DT)
+library(SnowballC)
+library(tidytext)

@@ -7,7 +7,7 @@
 #' @import shiny
 #' @import shinydashboard
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' shineMe()
 #' }
 shineMe <- function(){
