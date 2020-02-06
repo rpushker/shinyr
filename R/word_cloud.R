@@ -4,6 +4,8 @@
 #' @param d table of word's frequency
 #' @importFrom wordcloud wordcloud
 #' @import RColorBrewer
+#' @import SnowballC
+#' @import tidytext
 #' @return Word cloud plot
 #' @export
 #' @examples

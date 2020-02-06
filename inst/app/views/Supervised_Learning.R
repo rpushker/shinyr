@@ -1,5 +1,5 @@
 
-library(DT)
+# library(DT)
 
 output$regression_predictor_cols <- renderUI({
   res <- filtered_data_dyn()

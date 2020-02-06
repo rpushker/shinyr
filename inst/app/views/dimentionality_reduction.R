@@ -1,7 +1,3 @@
-library("factoextra")
-library(FactoMineR)
-
-
 
 res.pca <- reactive({
   df <- filtered_data_dyn()

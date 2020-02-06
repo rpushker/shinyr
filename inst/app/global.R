@@ -1,7 +1,9 @@
 library(shinyr)
 library(dplyr)
+library(shiny)
+library(shinydashboard)
 
-getLibraryReport(
+dependency_report <- getLibraryReport(
   c('data.table',
     "shinydashboard", 
     "shiny", 
@@ -15,19 +17,7 @@ getLibraryReport(
     "tidytext", 
     "factoextra",
     'e1071',
-    'GGally'
+    'GGally',
+    'tidyr'
     )
 )
-
-library(shinydashboard)
-library(shiny)
-library(dplyr)
-library(plotly)
-library(htmlwidgets)
-library(shinyWidgets)
-library(corrplot)
-library(wordcloud)
-library(shinyr)
-library(DT)
-library(SnowballC)
-library(tidytext)

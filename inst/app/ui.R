@@ -38,7 +38,7 @@ shinyUI(
                    ".shiny-output-error:before { visibility: hidden; }"
         ),
         # dashboardthemes::shinyDashboardThemes(theme = "grey_light"),
-        uiOutput("body_page")
+        uiOutput("body_page_conditional")
       )
       
     )

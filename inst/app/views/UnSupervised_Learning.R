@@ -1,5 +1,5 @@
-library(factoextra)
-library(FactoMineR)
+# library(factoextra)
+# library(FactoMineR)
 
 as_valid_set_for_clustering <- function(x){
   dat <- x
