@@ -9,8 +9,6 @@ package_report <- reactive({
       "corrplot", 
       "wordcloud", 
       "DT", 
-      "SnowballC", 
-      "tidytext", 
       "factoextra",
       'e1071',
       'GGally',

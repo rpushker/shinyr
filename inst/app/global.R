@@ -13,8 +13,6 @@ dependency_report <- getLibraryReport(
     "corrplot", 
     "wordcloud", 
     "DT", 
-    "SnowballC", 
-    "tidytext", 
     "factoextra",
     'e1071',
     'GGally',

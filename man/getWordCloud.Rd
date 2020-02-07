@@ -19,6 +19,8 @@ Get word cloud for given table of words' frequencies
 getWordCloud
 }
 \examples{
+\donttest{
 x <- getFeqTable("Hello! R is Great")
 getWordCloud(x)
+}
 }
