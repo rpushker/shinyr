@@ -5,9 +5,13 @@ library(shinydashboard)
 
 dependency_report <- getLibraryReport(
   c('data.table',
+    'shinyr',
     "shinydashboard", 
     "shiny", 
+    "corrplot",
+    "wordcloud",
     "plotly", 
+    'dplyr',
     "htmlwidgets",
     "shinyWidgets", 
     "corrplot", 
@@ -16,6 +20,8 @@ dependency_report <- getLibraryReport(
     "factoextra",
     'e1071',
     'GGally',
-    'tidyr'
+    'tidyr',
+    'RColorBrewer',
+    'caret', 'nnet', 'DMwR', 'randomForest'
     )
 )

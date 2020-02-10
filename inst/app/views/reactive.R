@@ -1,9 +1,13 @@
 package_report <- reactive({
   getLibraryReport(
-    unique(c('data.table',
+    c('data.table',
+      'shinyr',
       "shinydashboard", 
       "shiny", 
+      "corrplot",
+      "wordcloud",
       "plotly", 
+      'dplyr',
       "htmlwidgets",
       "shinyWidgets", 
       "corrplot", 
@@ -12,10 +16,10 @@ package_report <- reactive({
       "factoextra",
       'e1071',
       'GGally',
-      "dplyr", "shiny", "shinydashboard", "tm", "wordcloud", "corrplot",
-      "randomForest", "RColorBrewer", "DMwR", "caret", "nnet", 'plotly'
-    ))
-  )
+      'tidyr',
+      'RColorBrewer',
+      'caret', 'nnet', 'DMwR', 'randomForest')
+    )
 })
 
 output$package_report <- DT::renderDataTable({
