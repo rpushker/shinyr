@@ -1,7 +1,7 @@
 Package: shinyr
 Type: Package
 Title: Data Insights Through Inbuilt R Shiny App
-Version: 0.2.2
+Version: 0.2.5
 Authors@R: c(person("Jayachandra", "N", email = "itsjay510@gmail.com", role = c("aut", "cre")), 
     person("Pushker", "Ravindra", email = "pushker@gmail.com", role = c("aut")))
 Description: It builds dynamic R shiny based dashboards to analyze any CSV files. It provides simple dashboard design to subset the data, perform exploratory data analysis and preliminary machine learning (supervised and unsupervised). It also provides filters based on columns of interest. 

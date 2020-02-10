@@ -6,6 +6,7 @@
 #' @export
 #' @import shiny
 #' @import shinydashboard
+#' @import plotly
 #' @examples
 #' \donttest{
 #' shineMe()
