@@ -18,6 +18,7 @@ dependency_report <- getLibraryReport(
     "wordcloud", 
     "DT", 
     "factoextra",
+    "FactoMineR",
     'e1071',
     'GGally',
     'tidyr',

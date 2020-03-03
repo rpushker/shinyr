@@ -44,6 +44,7 @@ shinyServer(function(input, output, session) {
       library(GGally)
       library(e1071)
       library(factoextra)
+      library(FactoMineR)
       library(wordcloud)
       library(data.table)
       library(nnet)
