@@ -24,9 +24,11 @@ shineMe <- function(){
 #' @return Corelation plot
 #' @export
 #' @author Jayachandra N
-#' examples
+#' @examples
+#' \donttest{
 #' cor_dat <- cor(mtcars)
 #' plotCor(cor_dat, "circle")
+#' }
 plotCor <- function(cor_dat, my_method) {
   corrplot::corrplot(cor_dat, method = my_method) # A single line function?
 }

@@ -10,13 +10,11 @@
 #' @return list
 #' @export
 #' @examples
-#' \dontrun{
 #' mod <- lm(formula = wt ~ ., data = mtcars)
 #' predictions <- predict(mod, mtcars[,-6])
 #' actials <- mtcars[,6]
 #' regressionModelMetrics(actuals = actials,
 #' predictions = predictions, model = mod)
-#' }
 regressionModelMetrics <- function(actuals, predictions, model) {
   x <- summary(model)
   aic <- round(AIC(model), digits = 2)
