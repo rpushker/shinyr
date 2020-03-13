@@ -23,13 +23,11 @@ Generate regression model metrics such as R-squared and MAPE.
 regressionModelMetrics
 }
 \examples{
-\dontrun{
 mod <- lm(formula = wt ~ ., data = mtcars)
 predictions <- predict(mod, mtcars[,-6])
 actials <- mtcars[,6]
 regressionModelMetrics(actuals = actials,
 predictions = predictions, model = mod)
-}
 }
 \author{
 Jayachandra N

@@ -20,9 +20,12 @@ Plot correlation plot
 \details{
 plotCor
 }
-\author{
-Jayachandra N
-examples
+\examples{
+\donttest{
 cor_dat <- cor(mtcars)
 plotCor(cor_dat, "circle")
+}
+}
+\author{
+Jayachandra N
 }
