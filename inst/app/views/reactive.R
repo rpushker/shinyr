@@ -85,7 +85,7 @@ filtered_data <- reactive({
     
     col <- my_data[ ,my_inputs[j]]
     
-    if(is.character(col)) {
+    if(is.character(col) || is.factor(col)) {
       temp <- temp[temp[,cols_to_filter[j]] %in% input[[cols_to_filter[j]]], ]
     } else if(is.numeric(col)) {
       temp <- temp[temp[,cols_to_filter[j]] >= input[[cols_to_filter[j]]][1], ]

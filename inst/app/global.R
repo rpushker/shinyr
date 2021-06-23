@@ -23,6 +23,6 @@ dependency_report <- getLibraryReport(
     'GGally',
     'tidyr',
     'RColorBrewer',
-    'caret', 'nnet', 'DMwR', 'randomForest'
+    'caret', 'nnet', 'randomForest'
     )
 )

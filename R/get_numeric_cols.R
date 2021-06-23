@@ -28,8 +28,17 @@ getnumericCols <- function(dat) {
 #' getcharacterCols(iris)
 #' getcharacterCols(mtcars)
 getcharacterCols <- function(dat) {
-  x <- do.call("rbind", lapply(names(dat), FUN = function(x){c(x, class(dat[[x]]))})) %>% as.data.frame()
+  
+  x <- do.call("rbind", 
+               lapply(names(dat), FUN = function(x){ 
+               c(x, class(dat[[x]]))
+                 
+               })
+       ) %>% as.data.frame()
+  
   names(x) <- c("name", "type")
-  x <- x[x$type %in% c("character"), ]$name %>% as.vector()
+  
+  x <- x[x$type %in% c("character","factor"), ]$name %>% as.vector()
+
   return(x)
 }

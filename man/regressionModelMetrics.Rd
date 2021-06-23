@@ -25,8 +25,8 @@ regressionModelMetrics
 \examples{
 mod <- lm(formula = wt ~ ., data = mtcars)
 predictions <- predict(mod, mtcars[,-6])
-actials <- mtcars[,6]
-regressionModelMetrics(actuals = actials,
+actuals <- mtcars[,6]
+regressionModelMetrics(actuals = actuals,
 predictions = predictions, model = mod)
 }
 \author{
