@@ -11,7 +11,7 @@
 #' \donttest{
 #' shineMe()
 #' }
-shineMe <- function(){
+shineMe <- function() {
   shiny::runApp(system.file(package = "shinyr", "app"))
 }
 

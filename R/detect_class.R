@@ -13,11 +13,11 @@ detectClass <- function(x) {
   char <- is.character(x)
   num <- is.numeric(x) | is.integer(x)
   fac <- is.factor(x)
-  if(char){
+  if (char) {
     x <- "character"
-  } else if(num) {
+  } else if (num) {
     x <- "numeric"
-  } else if(fac){
+  } else if (fac) {
     x <- "factor"
   }
   return(x)

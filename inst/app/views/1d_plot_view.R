@@ -23,6 +23,7 @@ selectInput("plot_color", "Plot Colors", choices = c("green", "red", "yellow", "
 
 output$single_dimension_plot_box <- renderPlotly({
   dat <- filtered_data_dyn()
+  
   col_pos_x <- which(names(dat) %in% input$xaxis_col_1d)
   p <- plotly::plot_ly()
   for(j in 1:length(col_pos_x)) {
@@ -40,17 +41,17 @@ output$single_dimension_plot_pie <- renderPlotly({
   temp_df <- table(dat[,col_pos_x]) %>% as.data.frame()
   names(temp_df) <- c("Label", "count")
   p <- plotly::plot_ly(data = temp_df, labels = temp_df$Label, values = temp_df$count) %>%
-      add_pie(hole = 0.5) %>%
-      layout(showlegend = TRUE, title = paste("Count of ", input$xaxis_col_1d),
-             xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-             yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+    add_pie(hole = 0.5) %>%
+    layout(showlegend = TRUE, title = paste("Count of ", input$xaxis_col_1d),
+           xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+           yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
   p
 })
 
 output$single_dimension_plot_pie_ui <- renderUI({
   dat <- filtered_data_dyn()
   col_pos_x <- which(names(dat) %in% input$xaxis_col_1d)
-  if(length(col_pos_x) == 1) {
+  if(length(col_pos_x) == 1 && is.na(as.numeric(as.character(dat[[col_pos_x]][1]))) ) {
     box(width = 6, plotlyOutput("single_dimension_plot_pie"), title = "Pie chart", collapsible = TRUE)
   } else{
     return()
@@ -188,7 +189,6 @@ output$cor_matrix_plot <- renderPlot({
   x <- initial_analysis()
   
   y <- x$cor_matrix
-  
   plotCor(as.matrix(y), my_method = input$cor_style)
   
 })
@@ -231,7 +231,7 @@ output$single_dimention_plot_ui <- renderUI({
           sliderInput("max",
                       "Maximum Number of Words:",
                       min = 1,  max = 300,  value = 100),
-          plotOutput("plot")),
+          uiuiOutput("wordcloud_ui")),
       box(width = 12, title = 'correlation plot', 
           uiOutput("cor_plot_style"),
           plotOutput("cor_matrix_plot"))

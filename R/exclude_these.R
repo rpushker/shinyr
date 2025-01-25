@@ -10,6 +10,6 @@
 #' excludeThese(1:10, 1)
 excludeThese <- function(set, items_to_exclude) {
 
-  set[!(set %in% items_to_exclude )]
+  set[!(set %in% items_to_exclude)]
 
 }

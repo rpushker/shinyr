@@ -13,4 +13,3 @@
 make_var <- function(prefix, var, suffix) {
   as.symbol(paste0(prefix, var, suffix))
 }
-

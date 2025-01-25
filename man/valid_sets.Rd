@@ -9,7 +9,8 @@ valid_sets(package = NULL, cols = NULL)
 \arguments{
 \item{package}{package name to fetch inbuilt data sets example:  "datasets"}
 
-\item{cols}{numeric to specify condition on how many columns should data frame have}
+\item{cols}{numeric to specify condition on how many columns should data
+frame have}
 }
 \value{
 data frame all available datasets of class data frame

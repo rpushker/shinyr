@@ -13,7 +13,8 @@ getDataInsight(temp)
 list of details of data
 }
 \description{
-Get detailed insights about the data like number of rows, columns and some basic statistics such as mean
+Get detailed insights about the data like number of rows,
+columns and some basic statistics such as mean
 }
 \details{
 getDataInsight

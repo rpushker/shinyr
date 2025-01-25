@@ -9,7 +9,7 @@ output$body_page <- renderUI({
     fluidPage(
       ## ------- Basic Stats-------->
       tabBox(
-        title = "Insights", width = 12,
+        title = "Insights", width = 12,selected='Data',
         tabPanel('About', 
                  fluidPage(
                    box(DT::dataTableOutput('package_report'), 

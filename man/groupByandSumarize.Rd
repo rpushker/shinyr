@@ -25,7 +25,8 @@ Group by columns and summarize given data.
 groupByandSumarize
 }
 \examples{
-groupByandSumarize(mtcars, grp_col = c("am"), summarise_col = "hp", FUN = "mean")
+groupByandSumarize(mtcars, grp_col = c("am"), summarise_col = "hp",
+FUN = "mean")
 }
 \author{
 Jayachandra N

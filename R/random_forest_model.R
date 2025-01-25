@@ -9,6 +9,6 @@
 #' @author Jayachandra N
 #' @examples
 #' randomForestModel( Species ~ .,  iris)
-randomForestModel <- function(eqn, df){
+randomForestModel <- function(eqn, df) {
   randomForest::randomForest(eqn, data = df, importance = TRUE)
 }

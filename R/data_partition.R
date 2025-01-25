@@ -12,12 +12,12 @@ dataPartition <- function(df, train_data_perc) {
 
   train_data_size <- as.numeric(train_data_perc) / 100
 
-  trainingRowIndex <- sample(1:nrow(df), train_data_size * nrow(df))
+  training_row_index <- sample(seq_len(nrow(df)), train_data_size * nrow(df))
 
-  trainingData <- df[trainingRowIndex, ]
+  training_data <- df[training_row_index, ]
 
-  testData  <- df[-trainingRowIndex, ]
+  test_data  <- df[-training_row_index, ]
 
-  list(Test = testData, Train = trainingData)
+  list(Test = test_data, Train = training_data)
 
 }

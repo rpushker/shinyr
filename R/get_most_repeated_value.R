@@ -11,6 +11,6 @@
 getMostRepeatedValue <- function(vec) {
   x <- as.data.frame(table(vec))
   y <- x[x$Freq == max(x$Freq), ]$vec
-  sample_index <- sample(1:length(y), 1)
+  sample_index <- sample(seq_along(length(y)), 1)
   return(y[sample_index]) # Returning as factor. Should it be character?
 }

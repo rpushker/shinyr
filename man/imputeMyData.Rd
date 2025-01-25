@@ -11,13 +11,15 @@ imputeMyData(df, col, FUN)
 
 \item{col}{a column name of data frame to impute}
 
-\item{FUN}{a function to be used for imputing values one of(mean, median, sum, min, max)}
+\item{FUN}{a function to be used for imputing values one of(mean, median,
+sum, min, max)}
 }
 \value{
 data frame after imputing the values
 }
 \description{
-Impute for missing values in given column in a given data by given method.
+Impute for missing values in given column in a given data by
+given method.
 }
 \details{
 imputeMyData

@@ -1,18 +1,22 @@
 Package: shinyr
 Type: Package
 Title: Data Insights Through Inbuilt R Shiny App
-Version: 0.2.7
+Version: 0.4.1
 Authors@R: c(person("Jayachandra", "N", email = "itsjay510@gmail.com", role = c("aut", "cre")), 
     person("Pushker", "Ravindra", email = "pushker@gmail.com", role = c("aut")))
 Description: It builds dynamic R shiny based dashboards to analyze any CSV files. It provides simple dashboard design to subset the data, perform exploratory data analysis and preliminary machine learning (supervised and unsupervised). It also provides filters based on columns of interest. 
-Depends: R (>= 3.1.0),
+Depends: R (>= 3.5.0),
 Imports: dplyr, shiny, shinydashboard, tm, wordcloud, corrplot,
-        randomForest, RColorBrewer, DMwR, caret, nnet, plotly, e1071, knitr
+        randomForest, RColorBrewer, caret, nnet, plotly
 Maintainer: Jayachandra N <itsjay510@gmail.com>
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.0.2
-Suggests: testthat
+RoxygenNote: 7.3.2
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 NeedsCompilation: no
 VignetteBuilder: knitr
+Packaged: 2025-01-24 12:04:34 UTC; RPUSH1
+Author: Jayachandra N [aut, cre],
+  Pushker Ravindra [aut]
+Repository: CRAN
+Date/Publication: 2021-10-21 15:30:02 UTC

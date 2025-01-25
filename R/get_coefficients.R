@@ -14,5 +14,3 @@ getCoefficients <- function(model) {
   x <- data.frame(Col = row.names(y), y)
   return(x)
 }
-
-

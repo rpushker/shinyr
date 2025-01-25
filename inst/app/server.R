@@ -24,7 +24,6 @@ shinyServer(function(input, output, session) {
       library(wordcloud)
       library(DT)
       library(GGally)
-      library(e1071)
       library(factoextra)
       library(FactoMineR)
       library(wordcloud)
@@ -32,7 +31,6 @@ shinyServer(function(input, output, session) {
       library(nnet)
       library(randomForest)
       library(caret)
-      library(DMwR)
       library(RColorBrewer)
       
       ###-------- Sourcing from project directory---->

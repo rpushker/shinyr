@@ -15,7 +15,8 @@ confmatrix(actuals, preds)
 A table same as caret::ConfusionMatrix
 }
 \description{
-Calculates a cross-tabulation of observed and predicted classes with associated statistics.
+Calculates a cross-tabulation of observed and predicted classes
+with associated statistics.
 }
 \details{
 confmatrix

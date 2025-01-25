@@ -1,6 +1,6 @@
 #' splitAndGet
 #' @title Split And Get
-#' @description Split a string by space and get 
+#' @description Split a string by space and get
 #' @author Jayachandra N
 #' @param x string to split into words
 #' @return List of worrds

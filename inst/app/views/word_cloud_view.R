@@ -7,11 +7,18 @@
 # library(dplyr)
 
 output$cols <-  renderUI({
-  selectInput("column", label = "select Columns", choices = names(filtered_data_dyn()), multiple = T)
+  
+  ch <- shinyr::getcharacterCols(filtered_data_dyn())
+  
+  selectInput("column", 
+              label = "select Columns", 
+              choices = ch,
+              multiple = T)
 })
 
 getFrequencyWordTable <- reactive({
-  getFeqTable(filtered_data_dyn()[,input$column] %>% as.character())
+  getFeqTable(filtered_data_dyn()[,input$column] %>% 
+                as.character())
 })
 
 # output$exclude_items <- renderUI({
@@ -35,3 +42,11 @@ output$plot <- renderPlot({
 
 })
 
+output$wordcloud_ui <- renderUI({
+  character_columns <- shinyr::getcharacterCols(filtered_data_dyn())
+  if(length(character_columns) > 0){
+    plotOutput("plot")
+  } else {
+    return()
+  }
+})

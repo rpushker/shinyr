@@ -1,6 +1,7 @@
 #' confmatrix
 #' @title Conf Matrix
-#' @description Calculates a cross-tabulation of observed and predicted classes with associated statistics.
+#' @description Calculates a cross-tabulation of observed and predicted classes
+#' with associated statistics.
 #' @author Jayachandra N
 #' @param actuals a numeric vector
 #' @param preds a numeric vector
