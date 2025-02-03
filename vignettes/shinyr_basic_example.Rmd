@@ -1,0 +1,34 @@
+---
+title: "shinyr: Data Insights Through an Inbuilt R Shiny App"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shinyr: Data Insights Through an Inbuilt R Shiny App}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The package 'shinyr' provides data insights through an inbuilt R shiny app.
+
+```{r setup}
+library(shinyr)
+```
+
+1. Do you want to get insights into your data without much effort?
+2. Do you want to build a shiny dashboard for your own data?
+3. Do you want to analyse your data by subsetting it dynamically? 
+4. Do you want to perform an initial analysis of your data with just a few clicks?
+
+All these are possible with the package- 'shinyr' without doing much programming! You have to run one single command and upload your data. 
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+shinyr::shineMe()
+```
+
+#### Remember, your data stays safe! Your data will not be exposed to anyone/anywhere.

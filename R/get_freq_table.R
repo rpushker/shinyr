@@ -11,6 +11,7 @@
 #' @examples
 #' getFeqTable("shinyr is Incredible!")
 getFeqTable <- function(text) {
+  # WARNING; Function name should have been getFreqTable.
   text <- c(text)
   doc_ids <- c(1)
 

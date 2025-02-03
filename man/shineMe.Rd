@@ -16,9 +16,9 @@ An R shiny app for shinyr UI.
 shineMe
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 shineMe()
-}
+\dontshow{\}) # examplesIf}
 }
 \author{
 Jayachandra N

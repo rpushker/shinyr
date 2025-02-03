@@ -7,10 +7,8 @@
 #' @import shiny
 #' @import shinydashboard
 #' @import plotly
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' shineMe()
-#' }
 shineMe <- function() {
   shiny::runApp(system.file(package = "shinyr", "app"))
 }
@@ -24,11 +22,9 @@ shineMe <- function() {
 #' @return Corelation plot
 #' @export
 #' @author Jayachandra N
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' cor_dat <- cor(mtcars)
 #' plotCor(cor_dat, "circle")
-#' }
 plotCor <- function(cor_dat, my_method) {
   corrplot::corrplot(cor_dat, method = my_method) # A single line function?
 }

@@ -19,8 +19,8 @@ Get word cloud for given table of words' frequencies
 getWordCloud
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 x <- getFeqTable("Hello! R is Great")
 getWordCloud(x)
-}
+\dontshow{\}) # examplesIf}
 }

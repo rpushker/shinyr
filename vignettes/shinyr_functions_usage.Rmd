@@ -1,19 +1,26 @@
 ---
-title: shinyr - an R package to build analytics dashboard automatically
+title: "shinyr Functions Usage"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{shinyr - an R package to build analytics dashboard automatically}
+  %\VignetteIndexEntry{shinyr Functions Usage}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  %\usepackage[utf8]{inputenc}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(shinyr)
 ```
 
 ### **shinyr** is developed to build dynamic shiny based dashboards to analyze the data of your choice.  It provides simple yet genius dashboard design to subset the data, perform exploratory analysis and predictive analysis by means of interactive filter mechanism.
 
-#### **NOTE: shinyr package does not mis-use your data, your data is not being copied or migrated to anywhere. **
+#### **NOTE: shinyr package does not misuse your data, your data is not being copied or migrated to anywhere. **
 
 ## Installing shinyr package
 ##### You can install shinyr package like how you install any other package from CRAN. simply fallow the folloing commands to install the package.
@@ -194,4 +201,3 @@ get the metrics of regression model by using regressionModelmMetrics()
  row.names(y) <- NULL
  knitr::kable(y)
 ```
-

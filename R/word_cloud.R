@@ -6,11 +6,9 @@
 #' @import RColorBrewer
 #' @return Word cloud plot
 #' @export
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' x <- getFeqTable("Hello! R is Great")
 #' getWordCloud(x)
-#' }
 getWordCloud <- function(d) {
   wordcloud::wordcloud(words = d$word, freq = d$freq, min.freq = 1,
                        max.words = 200, random.order = FALSE, rot.per = 0.35,

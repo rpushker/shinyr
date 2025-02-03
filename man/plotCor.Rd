@@ -21,10 +21,10 @@ Plot correlation plot
 plotCor
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 cor_dat <- cor(mtcars)
 plotCor(cor_dat, "circle")
-}
+\dontshow{\}) # examplesIf}
 }
 \author{
 Jayachandra N
