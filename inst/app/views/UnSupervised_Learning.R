@@ -196,13 +196,13 @@ output$nclust_method_input <- renderUI({
 optimal_number_of_clusters <- reactive({
   my_data <- clustering_data()
   if(input$nclust_calc_method == 'Average of silhouette') {
-    method = 'silhouette'
+    method <- 'silhouette'
   } 
   if(input$nclust_calc_method == 'Total within sum of square') {
-    method = 'wss'
+    method <- 'wss'
   }
   if(input$nclust_calc_method == 'Gap statistics') {
-    method = 'gap_stat'
+    method <- 'gap_stat'
   }
   fviz_nbclust(my_data, kmeans, method = method)
 })
